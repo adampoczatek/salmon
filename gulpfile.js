@@ -9,7 +9,7 @@ var gulp        = require("gulp"),
 
 gulp.task("default", ["css", "js", "watch:css", "watch:html", "watch:js"], start);
 
-gulp.task("legacy", ["css", "js:legacy", "watch:css", "watch:html", "watch:js"], start);
+gulp.task("legacy", ["css", "js:legacy", "watch:css", "watch:html", "watch:js:legacy"], start);
 
 gulp.task("watch:css", function () {
     return gulp.watch(["./src/css/**/*.scss"])
@@ -39,6 +39,15 @@ gulp.task("watch:js", function () {
         })  
 });
 
+gulp.task("watch:js:legacy", function () {
+    return gulp.watch(["./src/js/**/*.js"])
+        .on("change", function () {
+            runSequence("js:legacy", function () {
+                browserSync.reload();
+            });
+        })  
+});
+
 gulp.task("css", function () {
     return $.rubySass("./src/css/style.scss", {
             sourcemap: true
@@ -57,7 +66,11 @@ gulp.task("js", function () {
     return browserify("./src/js/app.js", { debug: true })
         .transform(babelify)
         .bundle()
-        .on("error", function (err) { console.log("Error : " + err.message); })
+        .on("error", function (err) { 
+            console.log("Error : " + err.message); 
+
+            this.emit('end');
+        })
         .pipe(fs.createWriteStream("./dist/js/app.js"));
 });
 
