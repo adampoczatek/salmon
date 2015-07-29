@@ -1,0 +1,63 @@
+/*
+Simple wrapper around media queries to make sure you have consistent
+min/max width across the site.
+
+Dependencies:
+__screen.scss
+
+Usage:
+@include _screen-mobile {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+*/
+
+@mixin _screen-mobile () {
+    @media screen and (max-width: $_screen-small) {
+        @content;
+    }
+}
+
+@mixin _screen-small () {
+    @media screen and (min-width: $_screen-small) {
+        @content;
+    }
+}
+
+@mixin _screen-small-only () {
+    @media screen and (min-width: $_screen-small) and (max-width: $_screen-medium) {
+        @content;
+    }
+}
+
+
+@mixin _screen-medium () {
+    @media screen and (min-width: $_screen-medium) {
+        @content;
+    }
+}
+
+@mixin _screen-medium-only () {
+    @media screen and (min-width: $_screen-medium) and (max-width: $_screen-large) {
+        @content;
+    }
+}
+
+@mixin _screen-large () {
+    @media screen and (min-width: $_screen-large) {
+        @content;
+    }
+}
+
+@mixin _screen-large-only () {
+    @media screen and (min-width: $_screen-large) and (max-width: $_screen-xlarge) {
+        @content;
+    }
+}
+
+@mixin _screen-xlarge () {
+    @media screen and (min-width: $_screen-xlarge) {
+        @content;
+    }
+}

@@ -1,0 +1,85 @@
+/*
+Simple, responsive grid system.
+
+Dependencies: 
+__screen.scss
+
+Usage:
+<div class="_g">
+    <div class="_g__12">50% width</div>
+    <div class="_g__6">25% width</div>
+    <div class="_g__6">25% width</div>
+</div>
+*/
+
+$_grid-name: _g;
+$_grid-total-columns: 24;
+
+.#{$_grid-name} {
+    letter-spacing: -.31em; 
+    text-rendering: optimizespeed;
+    flex-flow: row wrap;
+    display: flex;
+}
+
+.#{$_grid-name}--center {
+    align-items: center;
+    justify-content: center;
+}
+
+.#{$_grid-name}--stretch { min-height: 100%; }
+
+[class*="#{$_grid-name}__"] {
+    display: inline-block;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+.#{$_grid-name}__1 { width: 100% / $_grid-total-columns }
+
+@for $i from 2 through $_grid-total-columns {
+    .#{$_grid-name}__#{$i} {
+        width: (100% / ($_grid-total-columns / $i))
+    }
+}
+
+@include _screen-small {
+    .#{$_grid-name}__1--sm { width: 100% / $_grid-total-columns }
+
+    @for $i from 2 through $_grid-total-columns {
+        .#{$_grid-name}__#{$i}--sm {
+            width: (100% / ($_grid-total-columns / $i));
+        }
+    }
+}
+
+@include _screen-medium {
+    .#{$_grid-name}__1--md { width: 100% / $_grid-total-columns }
+
+    @for $i from 2 through $_grid-total-columns {
+        .#{$_grid-name}__#{$i}--md {
+            width: (100% / ($_grid-total-columns / $i));
+        }
+    }
+}
+
+@include _screen-large {
+    .#{$_grid-name}__1--lg { width: 100% / $_grid-total-columns }
+
+    @for $i from 2 through $_grid-total-columns {
+        .#{$_grid-name}__#{$i}--lg {
+            width: (100% / ($_grid-total-columns / $i));
+        }
+    }
+}
+@include _screen-xlarge {
+    .#{$_grid-name}__1--xlg { width: 100% / $_grid-total-columns }
+
+    @for $i from 2 through $_grid-total-columns {
+        .#{$_grid-name}__#{$i}--xlg {
+            width: (100% / ($_grid-total-columns / $i));
+        }
+    }
+}

@@ -1,0 +1,388 @@
+/*
+Helpers for adding space.
+Naming convention is quite straighforward:
+
+_s{-flag 1}{-flag 2}{-flag 3}
+
+Flags:
+1) direction -t, -r, -b, -l (top, right, bottom or left)
+2) size -h (half), -d (double) 
+3) (none = outside, margin) -in (space inside - padding)
+
+Modifiers:
+--mb (mobile)
+--sm (small)
+--smo (small only)
+--md (medium)
+--mdo (medium only)
+--lg (large)
+--lgo (large only)
+--xlg (extra large)
+
+Dependencies:
+__screen.scss
+
+Examples:
+
+_s-b-h-in - space, inset, half, bottom
+
+Usage (HTML):
+<div class="_s-t _s-b _s-l-d  _s-r-d">
+    This element will have margins:
+    - top: 1em
+    - bottom: 1em
+    - left: 2em;
+    - right: 2em
+</div>
+
+Usage (SCSS):
+// This component will have 2em padding top and bottom.
+.my-component {
+    @extend ._s-t-d-in;
+    @extend ._s-b-d-in;
+}
+
+*/
+
+$_spacing: $_base-spacing;
+$_spacing-name: _s;
+
+.#{$_spacing-name}        { margin:        $_spacing; }
+.#{$_spacing-name}-t      { margin-top:    $_spacing; }
+.#{$_spacing-name}-r      { margin-right:  $_spacing; }
+.#{$_spacing-name}-b      { margin-bottom: $_spacing; }
+.#{$_spacing-name}-l      { margin-left:   $_spacing; }
+
+.#{$_spacing-name}-h      { margin:        $_spacing / 2; }
+.#{$_spacing-name}-t-h    { margin-top:    $_spacing / 2; }
+.#{$_spacing-name}-r-h    { margin-right:  $_spacing / 2; }
+.#{$_spacing-name}-b-h    { margin-bottom: $_spacing / 2; }
+.#{$_spacing-name}-l-h    { margin-left:   $_spacing / 2; }
+
+.#{$_spacing-name}-d      { margin:        $_spacing * 2; }
+.#{$_spacing-name}-t-d    { margin-top:    $_spacing * 2; }
+.#{$_spacing-name}-r-d    { margin-right:  $_spacing * 2; }
+.#{$_spacing-name}-b-d    { margin-bottom: $_spacing * 2; }
+.#{$_spacing-name}-l-d    { margin-left:   $_spacing * 2; }
+
+.#{$_spacing-name}-in     { padding:        $_spacing; }
+.#{$_spacing-name}-t-in   { padding-top:    $_spacing; }
+.#{$_spacing-name}-r-in   { padding-right:  $_spacing; }
+.#{$_spacing-name}-b-in   { padding-bottom: $_spacing; }
+.#{$_spacing-name}-l-in   { padding-left:   $_spacing; }
+
+.#{$_spacing-name}-h-in   { padding:        $_spacing / 2; }
+.#{$_spacing-name}-t-h-in { padding-top:    $_spacing / 2; }
+.#{$_spacing-name}-r-h-in { padding-right:  $_spacing / 2; }
+.#{$_spacing-name}-b-h-in { padding-bottom: $_spacing / 2; }
+.#{$_spacing-name}-l-h-in { padding-left:   $_spacing / 2; }
+
+.#{$_spacing-name}-d-in   { padding:        $_spacing * 2; }
+.#{$_spacing-name}-t-d-in { padding-top:    $_spacing * 2; }
+.#{$_spacing-name}-r-d-in { padding-right:  $_spacing * 2; }
+.#{$_spacing-name}-b-d-in { padding-bottom: $_spacing * 2; }
+.#{$_spacing-name}-l-d-in { padding-left:   $_spacing * 2; }
+
+@include _screen-mobile {
+    .#{$_spacing-name}--mb        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--mb      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--mb      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--mb      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--mb      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--mb      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--mb    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--mb    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--mb    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--mb    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--mb      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--mb    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--mb    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--mb    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--mb    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--mb     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--mb   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--mb   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--mb   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--mb   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--mb   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--mb { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--mb { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--mb { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--mb { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--mb   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--mb { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--mb { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--mb { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--mb { padding-left:   $_spacing * 2; }
+}
+
+@include _screen-small {
+    .#{$_spacing-name}--sm        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--sm      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--sm      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--sm      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--sm      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--sm      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--sm    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--sm    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--sm    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--sm    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--sm      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--sm    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--sm    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--sm    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--sm    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--sm     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--sm   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--sm   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--sm   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--sm   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--sm   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--sm { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--sm { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--sm { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--sm { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--sm   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--sm { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--sm { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--sm { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--sm { padding-left:   $_spacing * 2; }
+}
+
+@include _screen-small-only {
+    .#{$_spacing-name}--smo        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--smo      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--smo      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--smo      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--smo      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--smo      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--smo    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--smo    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--smo    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--smo    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--smo      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--smo    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--smo    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--smo    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--smo    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--smo     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--smo   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--smo   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--smo   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--smo   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--smo   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--smo { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--smo { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--smo { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--smo { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--smo   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--smo { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--smo { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--smo { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--smo { padding-left:   $_spacing * 2; }
+}
+
+@include _screen-medium {
+    .#{$_spacing-name}--md        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--md      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--md      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--md      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--md      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--md      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--md    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--md    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--md    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--md    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--md      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--md    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--md    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--md    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--md    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--md     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--md   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--md   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--md   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--md   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--md   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--md { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--md { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--md { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--md { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--md   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--md { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--md { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--md { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--md { padding-left:   $_spacing * 2; }
+}
+
+@include _screen-medium-only {
+    .#{$_spacing-name}--mdo        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--mdo      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--mdo      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--mdo      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--mdo      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--mdo      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--mdo    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--mdo    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--mdo    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--mdo    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--mdo      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--mdo    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--mdo    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--mdo    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--mdo    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--mdo     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--mdo   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--mdo   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--mdo   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--mdo   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--mdo   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--mdo { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--mdo { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--mdo { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--mdo { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--mdo   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--mdo { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--mdo { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--mdo { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--mdo { padding-left:   $_spacing * 2; }
+}
+
+@include _screen-large {
+    .#{$_spacing-name}--lg        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--lg      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--lg      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--lg      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--lg      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--lg      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--lg    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--lg    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--lg    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--lg    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--lg      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--lg    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--lg    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--lg    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--lg    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--lg     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--lg   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--lg   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--lg   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--lg   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--lg   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--lg { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--lg { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--lg { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--lg { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--lg   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--lg { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--lg { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--lg { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--lg { padding-left:   $_spacing * 2; }
+}
+
+@include _screen-large-only {
+    .#{$_spacing-name}--lgo        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--lgo      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--lgo      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--lgo      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--lgo      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--lgo      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--lgo    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--lgo    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--lgo    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--lgo    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--lgo      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--lgo    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--lgo    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--lgo    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--lgo    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--lgo     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--lgo   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--lgo   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--lgo   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--lgo   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--lgo   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--lgo { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--lgo { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--lgo { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--lgo { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--lgo   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--lgo { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--lgo { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--lgo { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--lgo { padding-left:   $_spacing * 2; }
+}
+
+@include _screen-xlarge {
+    .#{$_spacing-name}--xlg        { margin:        $_spacing; }
+    .#{$_spacing-name}-t--xlg      { margin-top:    $_spacing; }
+    .#{$_spacing-name}-r--xlg      { margin-right:  $_spacing; }
+    .#{$_spacing-name}-b--xlg      { margin-bottom: $_spacing; }
+    .#{$_spacing-name}-l--xlg      { margin-left:   $_spacing; }
+
+    .#{$_spacing-name}-h--xlg      { margin:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h--xlg    { margin-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h--xlg    { margin-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h--xlg    { margin-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h--xlg    { margin-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d--xlg      { margin:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d--xlg    { margin-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d--xlg    { margin-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d--xlg    { margin-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d--xlg    { margin-left:   $_spacing * 2; }
+
+    .#{$_spacing-name}-in--xlg     { padding:        $_spacing; }
+    .#{$_spacing-name}-t-in--xlg   { padding-top:    $_spacing; }
+    .#{$_spacing-name}-r-in--xlg   { padding-right:  $_spacing; }
+    .#{$_spacing-name}-b-in--xlg   { padding-bottom: $_spacing; }
+    .#{$_spacing-name}-l-in--xlg   { padding-left:   $_spacing; }
+
+    .#{$_spacing-name}-h-in--xlg   { padding:        $_spacing / 2; }
+    .#{$_spacing-name}-t-h-in--xlg { padding-top:    $_spacing / 2; }
+    .#{$_spacing-name}-r-h-in--xlg { padding-right:  $_spacing / 2; }
+    .#{$_spacing-name}-b-h-in--xlg { padding-bottom: $_spacing / 2; }
+    .#{$_spacing-name}-l-h-in--xlg { padding-left:   $_spacing / 2; }
+
+    .#{$_spacing-name}-d-in--xlg   { padding:        $_spacing * 2; }
+    .#{$_spacing-name}-t-d-in--xlg { padding-top:    $_spacing * 2; }
+    .#{$_spacing-name}-r-d-in--xlg { padding-right:  $_spacing * 2; }
+    .#{$_spacing-name}-b-d-in--xlg { padding-bottom: $_spacing * 2; }
+    .#{$_spacing-name}-l-d-in--xlg { padding-left:   $_spacing * 2; }
+}
